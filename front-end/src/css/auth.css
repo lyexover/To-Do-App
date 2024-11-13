@@ -1,0 +1,84 @@
+body {
+  height: 100vh;
+}
+.auth-container {
+  display: flex;
+  align-items: center;
+  transform: translateY(15%);
+  flex-direction: column;
+  gap: 30px;
+  width: max-content;
+  margin: 0 auto;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 3px rgba(206, 67, 67, 0.4);
+  /* background-image: url("../assets/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: rgb(248, 248, 248);
+}
+
+.form,
+.form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  /* position: relative;
+  left: 100px; */
+  flex-grow: 1;
+}
+
+.form form {
+  gap: 15px;
+}
+
+label {
+  border: 1px solid;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  border-color: rgb(162, 162, 162);
+  border-radius: 5px;
+  padding: 5px;
+  gap: 10px;
+  width: 100%;
+}
+
+.logo {
+  color: rgb(206, 67, 67);
+  text-align: center;
+}
+
+.form input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.form button {
+  width: 100%;
+  background-color: rgb(206, 67, 67);
+  font-size: 1.2rem;
+  font-weight: 550;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.form button:hover {
+  background-color: rgb(223, 81, 81);
+}
+
+.option {
+  text-align: center;
+}
+.option p {
+  margin-bottom: 0;
+}

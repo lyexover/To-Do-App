@@ -1,0 +1,105 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h2 {
+  color: rgb(206, 67, 67);
+  position: relative;
+  left: 80px;
+}
+
+.header .right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  right: 70px;
+}
+.header .links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-right: 2px solid rgb(213, 213, 213);
+  padding-right: 10px;
+}
+
+.header .link {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+.header .link:hover {
+  background-color: rgb(237, 237, 237);
+}
+
+.header .auth {
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+}
+.header .auth .red {
+  background-color: rgb(234, 57, 57);
+  color: white;
+  font-weight: 550;
+  transition: 0.2s ease;
+}
+.header .auth .red:hover {
+  background-color: rgb(240, 102, 102);
+}
+
+/*Body------------------------------------------------------------------------*/
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 40px;
+  top: 90px;
+}
+
+.body .image {
+  width: 45%;
+}
+
+.body .image img {
+  width: 100%;
+}
+
+.body .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.body .text h1 {
+  font-size: 3.4rem;
+  width: 400px;
+  margin-bottom: 0;
+}
+
+.body .text p {
+  margin-top: 20px;
+  width: 440px;
+  color: rgb(137, 137, 137);
+  font-size: 1.3rem;
+}
+.body .text .link {
+  background-color: rgb(234, 57, 57);
+  padding: 20px 15px;
+  text-decoration: none;
+  color: white;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 650;
+  margin-top: 30px;
+  box-shadow: 0 5px 5px 5px rgba(234, 57, 57, 0.4);
+  transition: 0.2s ease;
+}
+.body .text .link:hover {
+  transform: translateY(5px);
+  box-shadow: 0 2px 5px 5px rgba(234, 57, 57, 0.4);
+}

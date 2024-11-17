@@ -1,12 +1,8 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-
-
 export default function Login(){
-
 const navigate = useNavigate()
-
 const [formData, setFormData] = useState({
     email : '', 
     password : ''
@@ -21,14 +17,9 @@ function handleChange(event){
          [name] : value
      }))
 }
-
-
 async function handleSubmit(event){
 
     event.preventDefault()
-
-   
-
     try{
         const response = await fetch('http://localhost:3000/api/auth/login' , {
             method : 'POST',
@@ -54,30 +45,51 @@ async function handleSubmit(event){
         console.error(err)
     }
 }
-
-
-
     return (
-        <div>
-            <h1 className="logo">TaskHive</h1>
-        <div className="auth-container">
-            <div className="form">
-            <h1>Log in</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Email 
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="Enter Email..."/>
-                </label>
-                <label>Password
-                   <input type="password" name="password" required value = {formData.password} onChange={handleChange} placeholder="Enter Password..." />
-                </label>
-                <button type="submit">Login</button>
-            </form>
+  
+        <body>
+    <div className="login">
+           <form onSubmit={handleSubmit}>
+            <h1>login</h1>
+            
+
+            <div class='input-field'>
+             <input type="email" 
+             name="email" 
+             placeholder=" "
+             required 
+             value={formData.email} 
+             onChange={handleChange}/>
+             <label> Enter your email </label>
+            </div>   
+            <div class='input-field'>
+            <i class = "fa-solid fa-lock"></i>
+            
+               <input type="password"
+                name="password" 
+                placeholder=" "
+                required 
+                value = {formData.password}
+                onChange={handleChange}  />   
+             <label for='login-pass'>Enter your password </label> 
+             <i class='fa-regular fa-eye-slash'></i>            
             </div>
-            <div className="option">
-                <p>Don't have an account yet ?</p>
-                <Link to='/signup'>SignUp</Link>
+            <div class ='check-group' >
+               <div class='check-box'>
+                 <input type="checkbox" checked></input>  
+                 <label >Remember me</label>
+                </div>
+              < a href="">Forgot Password</a>
             </div>
-        </div>
-        </div>
+               <button type="submit">login</button>
+            
+             <p>Don't have an account yet ?
+             <a href='/signup'>  SignUp</a>
+             </p>
+           </form>
+     </div>      
+</body>
     )
-}
+}  
+
+ 

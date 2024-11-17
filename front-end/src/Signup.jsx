@@ -12,24 +12,16 @@ const [formData, setFormData] = useState({
     email : '', 
     password : ''
 })
-
 function handleChange(event){
      const {name , value} = event.target 
-
-
      setFormData(prev => ({
          ...prev , 
          [name] : value
      }))
 }
-
-
 async function handleSubmit(event){
 
     event.preventDefault()
-
-   
-
     try{
         const response = await fetch('http://localhost:3000/api/auth/signup' , {
             method : 'POST',
@@ -56,34 +48,38 @@ async function handleSubmit(event){
     }
 }
 
-
-
     return (
-        <div>
-            <h1 className="logo">TaskHive</h1>
-        <div className="auth-container">
-            <div className="form">
-               <h1>Sign up</h1>
+    <body>
+            
+        <div className="login">
                <form onSubmit={handleSubmit}>
-                <label>Username 
-                   <input type="text" name="username" required value={formData.username} onChange={handleChange} placeholder="Enter username..."/>
-                 </label>
-                 <label> Email 
-                   <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="Enter email..."/>
-                   </label>
-                   <label>Pasword 
-                   <input type="password" name="password" required value = {formData.password} onChange={handleChange} placeholder="Enter password..." />
-                   </label>
-                   <button type="submit">Signup</button>
+                <h1>Sign up</h1>
+                <div class="input-field">
+                 <input 
+                 type="text" 
+                 name="username" 
+                 placeholder=" "
+                 required 
+                 value={formData.username} 
+                 onChange={handleChange} />
+                 <label>Enter your username </label>
+                </div>
+                <div class='input-field'>
+                 <input type="email" name="email" placeholder=" " required value={formData.email} onChange={handleChange}/>
+                 <label> Enter your email </label>
+                </div>   
+                <div class='input-field'>
+                   
+                   <input type="password" name="password" placeholder=" " required value = {formData.password} onChange={handleChange}  />                
+                <label>Enter your password </label>
+                </div>
+                   <button type="submit">Sign up</button>
+                <div className="option">
+                 <p>Already have an account ?<a href='/login'> Login</a></p>
+                 
+                </div>
                </form>
-               </div>
-               <div className="option">
-                 <p>Already have an account ?</p>
-                 <Link to='/login'>Login</Link>
-               </div>
-            
-            
-        </div>
-        </div>
+         </div>      
+    </body>
     )
 }

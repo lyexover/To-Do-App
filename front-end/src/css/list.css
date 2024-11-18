@@ -1,0 +1,150 @@
+.done {
+  background-color: rgb(22, 238, 22);
+}
+
+.tasks-container {
+  margin: 50px 0 auto 40px;
+  width: 60%;
+}
+
+.list {
+  margin-top: 90px;
+}
+
+.tasks-container h3 {
+  margin-top: 45px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.tasks-container p {
+  padding-left: 10px;
+  border-top: 1px solid rgb(224, 224, 224);
+  padding: 7px;
+}
+
+.tasks-container button {
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.tasks-container ul {
+  list-style: none;
+  padding-left: 5px;
+  width: 100%;
+}
+.tasks-container ul li {
+  border-top: 1px solid rgb(224, 224, 224);
+  padding: 7px 0 15px 7px;
+}
+
+.addtasklink {
+  text-decoration: none;
+  color: rgb(126, 126, 126);
+  border: 1px solid rgb(220, 82, 82);
+  padding: 5px;
+  border-radius: 5px;
+  background-color: beige;
+}
+
+.addtasklink span {
+  color: rgb(220, 82, 82);
+  margin-right: 10px;
+}
+
+/* form------------------------- */
+
+.add-task-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.add-task-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-task-modal h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: beige;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 0.3rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+.cancel-button:hover {
+  background: #e9ecef;
+}
+
+.form-actions .submit-button {
+  background-color: rgb(206, 67, 67);
+  color: white;
+  border: none;
+}
+
+.form-actions .submit-button:hover {
+  background-color: rgb(226, 122, 122);
+}
+
+.form-actions .submit-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

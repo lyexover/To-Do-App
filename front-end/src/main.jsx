@@ -6,6 +6,12 @@ import LandingPage from './LandingPage'
 import Login from './login'
 import Home from './Home'
 import Signup from './Signup'
+import Dashboard from './Dashboard'
+import {categoriesLoader} from './Categories'
+import List from './List'
+import { listLoader } from './List'
+import AddTaskForm from './AddTaskForm'
+import AddCategoryForm from './AddCategoryForm'
 
 
 const router = createBrowserRouter([
@@ -22,8 +28,32 @@ const router = createBrowserRouter([
     element : <Signup/>
   },
   {
-    path : '/home', 
-    element : <Home/>
+    path : '/home/:userID', 
+    element : <Home/> , 
+    loader : categoriesLoader ,
+    children : [
+      {
+        index : true ,
+        element : <Dashboard/>
+      } , 
+
+      {
+        path : '/home/:userID/addCategory', 
+        element : <AddCategoryForm />
+      },
+
+      {
+        path : '/home/:userID/category/:categoryID', 
+        element : <List />, 
+        loader : listLoader, 
+        children : [
+          {
+            path : '/home/:userID/category/:categoryID/addTask',
+            element : <AddTaskForm/>
+          }
+        ]
+      }
+    ]
   }
 ])
 

@@ -58,12 +58,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  gap: 40px;
+  gap: 50px;
   top: 90px;
 }
 
 .body .image {
-  width: 45%;
+  width: 50%;
 }
 
 .body .image img {

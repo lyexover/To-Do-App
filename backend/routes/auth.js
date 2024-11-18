@@ -84,7 +84,9 @@ router.post('/login', (req, res) => {
 
             const token = jwt.sign({userId : user.id} , Secret , {expiresIn : '1h'})
 
-            res.status(200).json({message : 'Login successful', token})
+
+            const id = user.id
+            res.status(200).json({message : 'Login successful', token, id })
         })
     })
 })

@@ -47,7 +47,7 @@ async function handleSubmit(event){
 
         console.log(data.message)
         localStorage.setItem('token', data.token)
-        navigate('/home')
+        navigate(`/home/${data.id}`)
 
     }
     catch(err){

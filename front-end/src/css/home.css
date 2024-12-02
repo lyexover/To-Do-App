@@ -1,86 +1,256 @@
+:root {
+  --primary-color: rgb(206, 67, 67);
+  --primary-light: rgb(255, 245, 245);
+  --background-light: #f8f9fa;
+  --border-color: #e9ecef;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --accent-1: rgb(206, 67, 67);
+  --accent-2: rgb(106, 126, 244);
+  --accent-3: rgb(143, 223, 143);
+  --accent-4: rgb(228, 228, 69);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease;
+  --scrollbar-width: 8px;
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #d1d1d1;
+  --scrollbar-thumb-hover: #a1a1a1;
+}
+
+/* Home Container */
 .home-container {
   display: flex;
   gap: 30px;
+  min-height: 100vh;
+  background-color: var(--background-light);
+  width: 100%;
 }
+
+/* Sidebar Modifications */
 .home-container .sidebar {
-  /* background-color: rgb(238, 238, 238); */
-  box-shadow: 0 0 10px 2px rgba(206, 67, 67, 0.3);
-  height: 100vh;
-  padding: 10px 20px;
-  width: 15%;
-}
-
-.home-container .sidebar h1 {
-  color: rgb(206, 67, 67);
-  text-align: center;
-  text-shadow: 2px 2px 5px rgba(206, 67, 67, 0.2);
-}
-
-.categories-container {
-  margin-top: 60px;
-}
-
-.categories-header form input {
-  border: none;
-  outline: none;
-  padding: 5px;
-}
-
-.categories-header form button {
-  border: none;
-  height: 100%;
-  padding: 7px 14px;
-  cursor: pointer;
-  background-color: rgb(206, 67, 67);
-  color: white;
-}
-
-.categories-header form {
-  /*border: 1px solid;*/
-  border-radius: 5px;
-  padding: 0;
-  font-size: 1.1rem;
-  box-shadow: 0 0 7px 3px rgba(206, 67, 67, 0.35);
+  background-color: white;
+  box-shadow: var(--shadow-md);
+  padding: 15px 25px 0 25px;
+  width: 300px;
+  max-height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+/* Categories Container */
+.categories-container {
+  margin-top: 1.5rem;
+  overflow-y: auto;
+  padding-right: 12px;
+  margin-right: -12px;
+  height: calc(100vh - 120px);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  flex-grow: 1;
+}
+
+/* Custom Scrollbar for Categories Container */
+.categories-container::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.categories-container::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: calc(var(--scrollbar-width) / 2);
+}
+
+.categories-container::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: calc(var(--scrollbar-width) / 2);
+  transition: var(--transition);
+}
+
+.categories-container::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+.categories-container .delete-btn-cat {
+  color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  padding: 2px 4px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  transition: var(--transition);
+  margin-left: auto;
+  cursor: pointer;
+}
+.categories-container .delete-btn-cat:hover {
+  opacity: 1.2;
+  background-color: var(--primary-light);
+}
+/* Sidebar Header */
+.home-container .sidebar h1 {
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* Categories Header */
+.categories-header {
+  padding: 0 0.5rem;
+}
+
+.categories-header h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .categories-header .add-cat {
   text-decoration: none;
-  color: rgb(206, 67, 67);
-  padding-left: 5px;
+  color: var(--primary-color);
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.categories-header .add-cat:hover {
+  background-color: var(--primary-light);
 }
 
 .categories-header .add-cat i {
   font-size: 1rem;
 }
 
-.categories-header h3 {
-  margin-bottom: 15px;
-}
-
+/* Categories List */
 .categories-container ul {
   list-style: none;
-  margin-top: 30px;
-  padding-left: 5px;
+  margin-top: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.categories-container ul li {
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  transition: var(--transition);
+  border: 1px solid transparent;
 }
 
 .categories-container ul li .link {
   text-decoration: none;
-  color: black;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
 }
 
-.categories-container ul li {
-  margin: 7px 0;
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition: 0.2s ease;
-}
 .categories-container ul li:hover {
-  background-color: beige;
+  background-color: var(--primary-light);
 }
 
+/* Category Icons */
+.categories-container ul li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.categories-container ul li .span1 {
+  color: var(--accent-1);
+  background-color: rgba(206, 67, 67, 0.1);
+}
+
+.categories-container ul li .span2 {
+  color: var(--accent-2);
+  background-color: rgba(106, 126, 244, 0.1);
+}
+
+.categories-container ul li .span3 {
+  color: var(--accent-3);
+  background-color: rgba(143, 223, 143, 0.1);
+}
+
+.categories-container ul li .span4 {
+  color: var(--accent-4);
+  background-color: rgba(228, 228, 69, 0.1);
+}
+
+/* Active Category */
 .active {
-  background-color: beige;
-  border-left: 3px solid rgb(206, 67, 67);
+  background-color: var(--primary-light);
+  border-left: 3px solid var(--primary-color) !important;
+}
+
+.active .link {
+  font-weight: 600 !important;
+}
+
+/* Category Form */
+.categories-header form {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.categories-header form input {
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.categories-header form button {
+  border: none;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.categories-header form button:hover {
+  background-color: rgb(186, 47, 47);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .home-container .sidebar {
+    width: 240px;
+  }
+}
+
+.logout {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(206, 67, 67);
+  margin: 0 -25px; /* Extend to sidebar edges */
+  transition: var(--transition);
+  cursor: pointer;
+}
+.logout:hover {
+  background-color: rgb(225, 94, 94);
 }

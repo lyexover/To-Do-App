@@ -1,88 +1,188 @@
+/* Base styles and variables */
+:root {
+  --primary-color: rgb(220, 82, 82);
+  --primary-light: rgb(255, 245, 245);
+  --background-light: #f8f9fa;
+  --border-color: #e9ecef;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease;
+}
+
+/* Task status styles */
 .done {
-  background-color: rgb(22, 238, 22);
+  background-color: var(--primary-light);
+  transition: var(--transition);
 }
 
+.done button i {
+  color: var(--primary-color);
+}
+
+/* Task list container */
 .tasks-container {
-  margin: 50px 0 auto 40px;
+  margin: 10px 0 auto 30px;
   width: 60%;
+  flex: 6;
+  min-width: 0;
+  /* Add right margin to account for fixed calendar */
+  margin-right: calc(30% + 30px);
 }
-
 .list {
-  margin-top: 90px;
+  margin-top: 0;
 }
 
+/* Headers and text */
 .tasks-container h3 {
   margin-top: 45px;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.25rem;
 }
 
 .tasks-container p {
-  padding-left: 10px;
-  border-top: 1px solid rgb(224, 224, 224);
-  padding: 7px;
+  padding: 7px 10px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
 }
 
+/* Buttons */
 .tasks-container button {
   background-color: transparent;
   border: none;
   margin-right: 10px;
   cursor: pointer;
+  transition: var(--transition);
+  padding: 8px;
+  border-radius: 50%;
 }
 
+.tasks-container button:hover {
+  background-color: var(--primary-light);
+}
+
+/* Task list */
 .tasks-container ul {
   list-style: none;
   padding-left: 5px;
   width: 100%;
 }
-.tasks-container ul li {
-  border-top: 1px solid rgb(224, 224, 224);
-  padding: 7px 0 15px 7px;
+
+.tasks-list li {
+  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
+.tasks-list li:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Delete button */
+.tasks-container ul li .delete-btn {
+  color: var(--primary-color);
+  margin-right: 10px;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.tasks-container ul li .delete-btn:hover {
+  opacity: 1;
+  background-color: var(--primary-light);
+}
+
+/* Task date/time */
+.tasks-container ul li p {
+  border: none;
+  font-size: 0.85rem;
+  margin: 4px 0 0 30px;
+  padding: 0;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Add task link */
 .addtasklink {
   text-decoration: none;
-  color: rgb(126, 126, 126);
-  border: 1px solid rgb(220, 82, 82);
-  padding: 5px;
-  border-radius: 5px;
-  background-color: beige;
+  color: var(--text-secondary);
+  border: 2px solid var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: white;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.addtasklink:hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .addtasklink span {
-  color: rgb(220, 82, 82);
+  color: var(--primary-color);
   margin-right: 10px;
+  transition: var(--transition);
 }
 
-/* form------------------------- */
+.addtasklink:hover span {
+  color: white;
+}
 
+/* Modal styles */
 .add-task-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(4px);
+  text-align: center;
 }
 
 .add-task-modal {
   background: white;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 90%;
   max-width: 500px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .add-task-modal h3 {
   margin: 0 0 1.5rem 0;
   font-size: 1.5rem;
+  color: var(--text-primary);
+}
+.add-task-modal .form-group input {
+  width: 100%;
+  padding: 10px 5px;
 }
 
+/* Form styles */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -90,26 +190,28 @@
 .form-group label {
   margin-bottom: 0.5rem;
   font-weight: 500;
-  text-align: center;
-  background-color: beige;
+  display: block;
+  color: var(--text-primary);
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 0.75rem 0.3rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 10px 5px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
   font-size: 1rem;
+  transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(220, 82, 82, 0.1);
 }
 
+/* Form actions */
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -119,32 +221,128 @@
 
 .form-actions button {
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition);
+  font-weight: 500;
 }
 
 .cancel-button {
-  background: #f8f9fa;
-  border: 1px solid #ddd;
+  background: var(--background-light);
+  border: 2px solid var(--border-color);
 }
 
 .cancel-button:hover {
-  background: #e9ecef;
+  background: var(--border-color);
 }
 
 .form-actions .submit-button {
-  background-color: rgb(206, 67, 67);
+  background-color: red;
   color: white;
   border: none;
 }
 
 .form-actions .submit-button:hover {
-  background-color: rgb(226, 122, 122);
+  background-color: rgb(206, 67, 67);
+  transform: translateY(-1px);
 }
 
-.form-actions .submit-button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+/* Date/Time container */
+.date-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Container and calendar styles */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px 40px;
+  padding-left: 0;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative; /* Add relative positioning to container */
+}
+
+.container .selected {
+  font-weight: 600;
+  color: var(--primary-color);
+  border-radius: 6px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-light);
+}
+.calendar-wrapper {
+  flex: 3;
+  min-width: 280px;
+  max-width: 400px;
+  visibility: hidden; /* Hide but maintain space */
+}
+
+.container .react-calendar {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: none;
+  padding: 16px;
+  background: white;
+  width: 25%; /* Responsive width */
+  min-width: 280px;
+  max-width: 400px;
+  height: fit-content;
+}
+
+.container .react-calendar__tile--now {
+  background: var(--primary-color);
+  border-radius: 6px;
+  color: white;
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.search-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(220, 82, 82, 0.1);
+}
+
+.search-container button {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.search-container button:hover {
+  background-color: var(--primary-light);
+}
+
+.search-container button i {
+  color: var(--text-secondary);
 }

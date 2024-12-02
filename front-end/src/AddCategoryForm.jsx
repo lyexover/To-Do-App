@@ -46,7 +46,7 @@ export default function AddCategoryForm(){
     return (
         <div className="add-task-overlay">
             <div className="add-task-modal">
-                <h3>Add New Task</h3>
+                <h3>Add New Collection</h3>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Collection name</label>

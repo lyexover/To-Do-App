@@ -54,4 +54,44 @@ router.post('/categories/:userID', (req, res) => {
 })
 
 
+router.get('/categories/:userID/RadarData', (req, res) => {
+    const userID = req.params.userID
+    const query = `
+        SELECT 
+          c.name AS category_name,
+          COUNT(t.id) AS task_count
+               FROM 
+                 categories c
+                LEFT JOIN 
+                 tasks t 
+                ON 
+                  c.id = t.category_id
+              GROUP BY 
+               c.id, c.name; `
+
+             db.query(query, (err, results)=> {
+                if(err) {
+                    console.errror('database error : error getting #tasks/ categories')
+                    return res.status(500).json({message : 'database error : error getting #tasks/ categories'})
+                }
+                return res.status(200).json(results)
+             })
+})
+
+
+router.delete('/categories/:categoryID' , (req, res) => {
+    const toDeleteID = req.params.categoryID
+    const query = `
+       DELETE FROM categories 
+       WHERE id = ?
+    `
+    db.query(query , [toDeleteID] , (err, results) => {
+        if(err){
+            console.log('db error')
+            return res.status(500).json({message : 'db error'})
+        }
+        return res.status(200).json({message : 'deleted succesfully'})
+    })
+})
+
 module.exports = router

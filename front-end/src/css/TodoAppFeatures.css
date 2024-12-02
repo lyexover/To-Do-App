@@ -1,0 +1,98 @@
+.todo-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.todo-features-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.todo-features-title span {
+  color: rgb(206, 67, 67);
+}
+
+.todo-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.todo-feature-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.todo-feature-card:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.todo-feature-header {
+  border-bottom: 1px solid #eee;
+  padding: 1rem;
+}
+
+.todo-feature-card-title {
+  font-size: 1.5rem;
+  font-weight: semibold;
+  color: #2c3e50;
+}
+
+.todo-feature-content {
+  padding: 1rem;
+}
+
+.todo-feature-description {
+  margin-bottom: 1rem;
+}
+
+.todo-feature-description p {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.todo-feature-subfeatures {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.todo-feature-image-container {
+  width: 100%;
+  height: 250px;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.todo-feature-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .todo-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .todo-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-features-title {
+    font-size: 2rem;
+  }
+}
